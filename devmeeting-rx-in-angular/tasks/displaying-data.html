@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tasks -&nbsp;Displaying data
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" media="all" href="http://xpla.org/static/css/deck.3.0.0.css">
+    <style>
+      body {
+          padding-bottom: 2em;
+      }
+      
+      .additional::before {
+          content: 'Additional';
+          background-color: #0a90ce;
+          color: white;
+          padding: 0.25em 1em;
+          font-size: 66%;
+          border-radius: 0.25em;
+          margin-right: 0.5em;
+      }
+      
+    </style>
+  </head>
+  <body class="container">
+    <header>
+      <h1>Displaying data</h1>
+    </header>
+    <ol>
+      <li>Set up a firebase project. In database part (don't use messaging API for now) create a collection of messages and put some messages in there. Each message should have at least:
+        <ul>
+          <li>a sender</li>
+          <li>timestamp (very important for sorting!)</li>
+          <li>body</li>
+        </ul>
+      </li>
+      <li>If required, grant both read and write access to firebase db for everyone (in rules)</li>
+      <li>Set up new Angular project</li>
+      <li>Show properly sorted messages with all data (it's preferred to use firebase SDK for that)</li>
+    </ol>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+extends ../../base-templates/tasks
+
+block title
+    | Displaying data
+
+block header
+    h1 Displaying data
+
+block tasks
+    ol
+        li Set up a firebase project. In database part (don't use messaging API for now) create a collection of messages and put some messages in there. Each message should have at least:
+            ul
+                li a sender
+                li timestamp (very important for sorting!)
+                li body
+        li If required, grant both read and write access to firebase db for everyone (in rules)
+        li Set up new Angular project
+        li Show properly sorted messages with all data (it's preferred to use firebase SDK for that)

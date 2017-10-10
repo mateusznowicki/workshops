@@ -1,0 +1,15 @@
+extends ../../base-templates/tasks
+
+block title
+    | Error handling
+
+block header
+    h1 Error handling
+
+block tasks
+    ol
+        li Add error handling for incomming messages - show an error message and prevent app from freezing or cancelling subscription.
+        li Add retrying message sending if an error occurs
+        li.additional Change retrying to add 1s delay between next attempts
+        li.additional Make delay longer with each retry
+        li.additional When delay extends 10s show a message with counter to next attempt

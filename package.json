@@ -1,0 +1,27 @@
+{
+  "name": "devmeeting-rx-in-angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --write 'bin/*.js'",
+    "build:tasks": "node ./bin/build-tasks.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kapke/devmeeting-rx-in-angular.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kapke/devmeeting-rx-in-angular/issues"
+  },
+  "homepage": "https://github.com/kapke/devmeeting-rx-in-angular#readme",
+  "dependencies": {
+    "pug": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "prettier": "^1.7.4"
+  }
+}

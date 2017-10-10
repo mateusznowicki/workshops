@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tasks -&nbsp;Error handling
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" media="all" href="http://xpla.org/static/css/deck.3.0.0.css">
+    <style>
+      body {
+          padding-bottom: 2em;
+      }
+      
+      .additional::before {
+          content: 'Additional';
+          background-color: #0a90ce;
+          color: white;
+          padding: 0.25em 1em;
+          font-size: 66%;
+          border-radius: 0.25em;
+          margin-right: 0.5em;
+      }
+      
+    </style>
+  </head>
+  <body class="container">
+    <header>
+      <h1>Error handling</h1>
+    </header>
+    <ol>
+      <li>Add error handling for incomming messages - show an error message and prevent app from freezing or cancelling subscription.</li>
+      <li>Add retrying message sending if an error occurs</li>
+      <li class="additional">Change retrying to add 1s delay between next attempts</li>
+      <li class="additional">Make delay longer with each retry</li>
+      <li class="additional">When delay extends 10s show a message with counter to next attempt</li>
+    </ol>
+  </body>
+</html>

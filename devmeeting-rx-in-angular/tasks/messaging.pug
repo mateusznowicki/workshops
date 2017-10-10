@@ -1,0 +1,16 @@
+extends ../../base-templates/tasks
+
+block title
+    | Messaging
+
+block header
+    h1 Messaging
+
+block tasks
+    ol
+        li Using reactive form send message to chat
+        li.additional Add validation preventing sending empty messages
+        li Listen to changes in messages list so when anyone sends a message it gets automatically displayed
+        li Add handling links and images inside message so they get properly displayed/highlighted (it's useful to add these informations as separate entries in a message object)
+        li Add sidebar showing 5 last links and 5 last images
+        li.additional Add handling youtube videos in a way similar to graphics (displaying inside message box + 5 last videos on sidebar)
