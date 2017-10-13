@@ -5,7 +5,7 @@ mixin item(title)
         block
 
 mixin btn(text, href)
-    a.btn.btn-default(href=href)= text
+    a.btn.btn-default(href=href, target='_blank')= text
 
 doctype html
 html
@@ -23,7 +23,8 @@ html
                 color: #fff;
                 background: #0a90ce;
                 border-radius: 0;
-                width: 8rem;
+                min-width: 8rem;
+                margin: 0.5em;
             }
 
     body.container
