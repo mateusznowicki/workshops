@@ -1,0 +1,26 @@
+extends ../base-templates/index
+
+block vars
+    - var title = 'Rx.js in Angular'
+
+block title
+    | #{title}
+
+block header
+    | #{title}
+
+block program
+    +btn('Example app', 'https://github.com/kapke/ng-shop-firebase')
+
+    ol
+        li
+            +item('Rx.js - basics')
+                +btn('Slides', 'http://kapke.github.io/slides/Rx.js')
+            +item('Displaying data')
+                +btn('Tasks', 'tasks/displaying-data.html')
+            +item('Messaging')
+                +btn('Tasks', 'tasks/messaging.html')
+            +item('Error handling')
+                +btn('Tasks', 'tasks/error-handling.html')
+            +item('Users')
+                +btn('Tasks', 'tasks/users.html')
