@@ -8,7 +8,7 @@
     "prettier": "prettier --write 'bin/*.js'",
     "build:index": "node ./bin/build-index.js",
     "build:tasks": "node ./bin/build-tasks.js",
-    "deploy": "git push origin gh-pages"
+    "deploy": "git checkout gh-pages; git pull origin master; git push origin gh-pages --force; git checkout -"
   },
   "repository": {
     "type": "git",
