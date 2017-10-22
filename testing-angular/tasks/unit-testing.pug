@@ -1,0 +1,15 @@
+extends ../../base-templates/tasks
+
+block vars
+    - var title = 'Unit testing'
+
+block title
+    = title
+
+block header
+    h1= title
+
+block tasks
+    ol
+        li Fix all failing unit tests
+        li Add all missing tests starting from these which you find the most important

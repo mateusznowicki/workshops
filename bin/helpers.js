@@ -1,7 +1,11 @@
 const fs = require('fs')
 const path = require('path')
 
+const inquirer = require('inquirer')
 const pug = require('pug')
+const { prop } = require('ramda')
+
+const NON_PROJECT_DIRS = ['base-templates', 'bin', 'node_modules', '.git', '.idea']
 
 function getDirectories(base) {
     return fs
@@ -11,21 +15,19 @@ function getDirectories(base) {
         .map(file => file.name)
 }
 
-function checkProject(cwd, project) {
-    const excluded = ['base-templates', 'bin', 'node_modules', '.git', '.idea']
-    if (excluded.includes(project)) {
-        throw new Error(`Project cannot be any of ${excluded}`)
-    }
+function getProjects (cwd) {
+    return getDirectories(cwd).filter(name => !NON_PROJECT_DIRS.includes(name))
+}
 
-    if (!fs.existsSync(path.resolve(cwd, project))) {
-        const availableProjects = getDirectories(cwd)
-            .filter(name => !excluded.includes(name))
-            .map(name => `\n* ${name}`)
-            .join('')
-        throw new Error(
-            `Project ${project} does not exist. Available projects are: ${availableProjects}`,
-        )
-    }
+const projectExists = (cwd, project) => !NON_PROJECT_DIRS.includes(project) && fs.existsSync(path.resolve(cwd, project))
+
+async function renderProjectSelector (projects) {
+    return inquirer.prompt({
+        type: 'list',
+        name: 'answer',
+        message: 'Select project',
+        choices: projects,
+    }).then(prop('answer'))
 }
 
 function renderTemplate(path) {
@@ -34,4 +36,4 @@ function renderTemplate(path) {
     fs.writeFileSync(path.replace('.pug', '.html'), html)
 }
 
-module.exports = { checkProject, renderTemplate, getDirectories }
+module.exports = { projectExists, renderTemplate, getDirectories, renderProjectSelector, getProjects }
