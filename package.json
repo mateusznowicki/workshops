@@ -24,6 +24,8 @@
     "pug": "^2.0.0-rc.4"
   },
   "devDependencies": {
-    "prettier": "^1.7.4"
+    "inquirer": "^3.3.0",
+    "prettier": "^1.7.4",
+    "ramda": "^0.25.0"
   }
 }

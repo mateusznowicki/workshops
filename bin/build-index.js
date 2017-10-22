@@ -1,17 +1,18 @@
 const path = require('path')
 
-const { checkProject, renderTemplate } = require('./helpers')
+const { projectExists, renderTemplate, getProjects, renderProjectSelector } = require('./helpers');
 
-try {
-    const project = process.argv[process.argv.length - 1]
+(async () => {
+    let project = process.argv[process.argv.length - 1]
     const cwd = process.cwd()
 
-    checkProject(cwd, project)
+    if (process.argv.length == 2 || !projectExists(cwd, project)) {
+        const projects = getProjects(cwd);
+        project = await renderProjectSelector(projects)
+    }
 
     const index = path.join(cwd, project, 'index.pug')
     renderTemplate(index)
 
     console.log(`Success! HTML for tasks in project ${project} is built`)
-} catch (e) {
-    console.error(e.message)
-}
+})()

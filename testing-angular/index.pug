@@ -1,0 +1,27 @@
+extends ../base-templates/index
+
+block vars
+    - var title = 'TDD + Testing Angular'
+
+block title
+    | #{title}
+
+block header
+    | #{title}
+
+block program
+    +btn('The App', 'https://github.com/kapke/ng-notepad')
+
+    ol
+        li
+            +item('Some theory')
+                +btn('Slides', 'http://kapke.github.io/slides/Unit%20testing/#/')
+        li
+            +item('Unit testing')
+                +btn('Tasks', 'tasks/unit-testing.html')
+        li
+            +item('E2E tests')
+                +btn('Tasks', 'tasks/e2e-tests.html')
+        li
+            +item('TDD')
+                +btn('Tasks', 'tasks/tdd.html')

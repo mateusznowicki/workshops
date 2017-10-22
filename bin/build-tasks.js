@@ -3,7 +3,7 @@ const fs = require('fs')
 
 const pug = require('pug')
 
-const { checkProject, renderTemplate } = require('./helpers')
+const { checkProject, renderTemplate, projectExists, getProjects, renderProjectSelector } = require('./helpers')
 
 function getTemplates(base) {
     return fs
@@ -14,16 +14,17 @@ function getTemplates(base) {
         .map(file => file.path)
 }
 
-try {
-    const project = process.argv[process.argv.length - 1]
+(async () => {
+    let project = process.argv[process.argv.length - 1]
     const cwd = process.cwd()
 
-    checkProject(cwd, project)
+    if (process.argv.length == 2 || !projectExists(cwd, project)) {
+        const projects = getProjects(cwd);
+        project = await renderProjectSelector(projects)
+    }
 
     const templates = getTemplates(path.join(path.join(cwd, project), 'tasks'))
     templates.forEach(renderTemplate)
 
     console.log(`Success! HTML for tasks in project ${project} is built`)
-} catch (e) {
-    console.error(e.message)
-}
+})()
