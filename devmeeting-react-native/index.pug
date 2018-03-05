@@ -1,0 +1,17 @@
+extends ../base-templates/index
+
+block vars
+    - var title = 'Devmeeting React Native'
+
+block title
+    | #{title}
+
+block header
+    | #{title}
+
+block program
+    ol
+        li
+            +item('Basic components')
+                +btn('Slides', 'slides/basic-components')
+                +btn('Tasks', 'tasks/basic-components')
