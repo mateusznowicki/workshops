@@ -21,17 +21,7 @@ mixin previewHtml
     xp-preview(runner='html')
 
 mixin expoSnack(id)
-    div(data-snack-id=id, data-snack-platform="ios", data-snack-preview="true", data-snack-theme="light", style='height: 100%')
-    +snackEmbed
-    //div(id=id)
-    //script.
-    //    var div = document.createElement('div')
-    //    div.dataset.snackId = '!{id}'
-    //    div.dataset.snackPlatform = 'ios';
-    //    div.dataset.snackPreview = true;
-    //    div.dataset.snackTheme = 'light';
-    //    document.getElementById('!{id}').appendChild(div)
-    //    ExpoSnack.append(div)
+    iframe(src='https://snack.expo.io/embedded/'+id+'?preview=true&platform=ios&theme=light', style='height: 100%; width: 100%; overflow: hidden; border: none')
 
 block append head
     title
