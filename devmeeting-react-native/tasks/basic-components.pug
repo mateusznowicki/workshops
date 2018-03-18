@@ -1,0 +1,19 @@
+extends ../../base-templates/tasks
+
+block vars
+    - var title = 'Basic components'
+
+block title
+    = title
+
+block header
+    h1= title
+
+block tasks
+    ol
+        li Display single note, for now it can be just text
+        li Display list of notes
+        li Apply styling to list to make it looking consistent with rest of used OS
+        li.additional Add flag indicating whether note is done or not, display only undone notes
+        li.additional Add creation time to notes, display it on list
+        li.additional Divide notes to sections using their creation date (today, yesterday, last week, last month, older)

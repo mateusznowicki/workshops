@@ -2,7 +2,7 @@ const path = require('path')
 
 const { renderTemplate, projectExists, getProjects, renderProjectSelector, getTemplates } = require('./helpers')
 
-(async () => {
+;(async () => {
     let project = process.argv[process.argv.length - 1]
     const cwd = process.cwd()
 

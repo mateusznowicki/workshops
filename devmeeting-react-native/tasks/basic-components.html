@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tasks -&nbsp;Basic components
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" media="all" href="http://xpla.org/static/css/deck.3.0.0.css">
+    <style>
+      body {
+          padding-bottom: 2em;
+      }
+      
+      .additional::before {
+          content: 'Additional';
+          background-color: #0a90ce;
+          color: white;
+          padding: 0.25em 1em;
+          font-size: 66%;
+          border-radius: 0.25em;
+          margin-right: 0.5em;
+      }
+      
+    </style>
+  </head>
+  <body class="container">
+    <header>
+      <h1>Basic components</h1>
+    </header>
+    <ol>
+      <li>Display single note, for now it can be just text</li>
+      <li>Display list of notes</li>
+      <li>Apply styling to list to make it looking consistent with rest of used OS</li>
+      <li class="additional">Add flag indicating whether note is done or not, display only undone notes</li>
+      <li class="additional">Add creation time to notes, display it on list</li>
+      <li class="additional">Divide notes to sections using their creation date (today, yesterday, last week, last month, older)</li>
+    </ol>
+  </body>
+</html>
