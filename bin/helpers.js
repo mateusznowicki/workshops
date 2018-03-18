@@ -3,7 +3,7 @@ const path = require('path')
 
 const inquirer = require('inquirer')
 const pug = require('pug')
-const { prop } = require('ramda')
+const { prop, map, chain, pipe } = require('ramda')
 
 const NON_PROJECT_DIRS = ['base-templates', 'bin', 'node_modules', '.git', '.idea']
 
@@ -14,6 +14,21 @@ function getDirectories(base) {
         .filter(file => fs.statSync(file.path).isDirectory())
         .map(file => file.name)
 }
+
+const getTemplates = base => pipe(
+    dir => fs.readdirSync(dir),
+    map(name => ({ name, base, path: path.join(base, name) })),
+    chain(file => {
+        const stat = fs.statSync(file.path);
+
+        if (stat.isFile() && file.name.endsWith('.pug')) {
+            return [file.path];
+        } else if (stat.isDirectory()) {
+            return getTemplates(file.path)
+        } else {
+            return [];
+        }
+    }))(base)
 
 function getProjects (cwd) {
     return getDirectories(cwd).filter(name => !NON_PROJECT_DIRS.includes(name))
@@ -36,4 +51,4 @@ function renderTemplate(path) {
     fs.writeFileSync(path.replace('.pug', '.html'), html)
 }
 
-module.exports = { projectExists, renderTemplate, getDirectories, renderProjectSelector, getProjects }
+module.exports = { projectExists, renderTemplate, getDirectories, renderProjectSelector, getProjects, getTemplates }
