@@ -1,13 +1,21 @@
 extends ../base-templates/index
 
 block vars
-    - var title = 'Devmeeting React Native'
+    - var title = 'DevMeeting React Native'
+    - var date = '23th March 2019'
+    - var link = 'http://bit.ly/react-native-devmeeting'
 
 block title
     | #{title}
 
 block header
     | #{title}
+
+block date
+    | #{date}
+
+block link
+    | #{link}
 
 block program
     ol
